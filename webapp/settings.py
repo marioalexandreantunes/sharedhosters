@@ -79,8 +79,10 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+USE_MYSQL = False
+
 # mario ANTUNES 2023 - adicionado
-if not DEBUG:
+if USE_MYSQL:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -148,6 +150,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
 if not DEBUG:
     # Verifica no CPanel onde está a pasta 'public' para o teu dominio
     STATIC_ROOT = '/home/USERNAME/public_html/static'
+    # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
