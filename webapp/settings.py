@@ -49,7 +49,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XContentOptionsMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = 'webapp.urls'
@@ -152,6 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://www.freecodecamp.org/news/how-to-build-a-secure-django-web-app/
 # https://learndjango.com/tutorials/django-best-practices-security
 # https://vegibit.com/how-to-secure-your-django-application-and-protect-user-data/
+# https://dev.to/thepylot/django-web-security-checklist-before-deployment-secure-your-django-app-4jb8
 if not DEBUG:
     X_FRAME_OPTIONS = 'DENY'
     SECURE_CONTENT_TYPE_NOSNIFF = True
