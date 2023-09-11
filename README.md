@@ -52,3 +52,10 @@ Caso precises de maior flexibilidade poderás adquirir uma cloud/Shared VPS, alp
             se necessário!
     ```
   - `CPanel-Python` e reload da app.
+  - relembrando alguns comandos necessários
+    ```
+            python manage.py createsuperuser
+            python manage.py findstatic css/base.css --verbosity 2
+            python manage.py check --deploy
+            python manage.py collectstatic   
+    ```
