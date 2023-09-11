@@ -153,6 +153,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://learndjango.com/tutorials/django-best-practices-security
 # https://vegibit.com/how-to-secure-your-django-application-and-protect-user-data/
 # https://dev.to/thepylot/django-web-security-checklist-before-deployment-secure-your-django-app-4jb8
+# https://docs.djangoproject.com/en/4.2/topics/security/
 if not DEBUG:
     X_FRAME_OPTIONS = 'DENY'
     SECURE_CONTENT_TYPE_NOSNIFF = True
