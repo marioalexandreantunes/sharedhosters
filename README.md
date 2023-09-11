@@ -47,7 +47,8 @@ Caso precises de maior flexibilidade poderás adquirir uma cloud/Shared VPS, alp
             git pull
     ```
     ```
-            python manage.py makemigrations & python manage.py migrate
+            python manage.py makemigrations
+            python manage.py migrate
+            se necessário!
     ```
-    se necessários!
   - `CPanel-Python` e reload da app.
