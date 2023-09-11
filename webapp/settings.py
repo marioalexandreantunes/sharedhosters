@@ -149,6 +149,9 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ADD --MA-- Algumas opções para segurança em produção
+# https://www.freecodecamp.org/news/how-to-build-a-secure-django-web-app/
+# https://learndjango.com/tutorials/django-best-practices-security
+# https://vegibit.com/how-to-secure-your-django-application-and-protect-user-data/
 if not DEBUG:
     X_FRAME_OPTIONS = 'DENY'
     SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -161,6 +164,8 @@ if not DEBUG:
     CSRF_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_SAMESITE = 'Strict'
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # ADD --MA-- parte da configuração do https://cloudinary.com/
 cloudinary.config(
