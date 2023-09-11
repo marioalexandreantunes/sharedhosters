@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # mario ANTUNES 2023 - adicionado
+    # https://www.geeksforgeeks.org/adding-csp-headers-in-django-project/
+    'csp.middleware.CSPMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -110,6 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12,
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -160,7 +166,8 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 15768000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
-    SECURE_SSL_REDIRECT = True 
+    # SECURE_SSL_REDIRECT = True 
+    SECURE_BROWSER_XSS_FILTER = True
     CSRF_COOKIE_SECURE = True
     CSRF_USE_SESSIONS = True
     CSRF_COOKIE_HTTPONLY = True
@@ -168,6 +175,15 @@ if not DEBUG:
     SESSION_COOKIE_SAMESITE = 'Strict'
     SESSION_COOKIE_HTTPONLY = True
     SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+    # https://www.geeksforgeeks.org/adding-csp-headers-in-django-project/
+    CSP_DEFAULT_SRC = ("'self'", 'https://cdn.jsdelivr.net')
+    CSP_STYLE_SRC = ("'self'", "https://cdn.jsdelivr.net")
+    CSP_SCRIPT_SRC = ("'self'", "hhttps://cdn.jsdelivr.net")
+    CSP_IMG_SRC = ("'self'", "https://cloudinary.com")
+    CSP_FORM_ACTION = ("'self'", )
+    CSP_STYLE_SRC_ELEM = ("'self'", 'https://cdn.jsdelivr.net')
+    CSP_SCRIPT_SRC_ELEM = ("'self'", "https://cdn.jsdelivr.net")
+    CSP_INCLUDE_NONCE_IN = ['script-src']
 
 # ADD --MA-- parte da configuração do https://cloudinary.com/
 cloudinary.config(
