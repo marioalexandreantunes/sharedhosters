@@ -1,4 +1,4 @@
-name: CI -> Deploy to Shared Hoster - NameCheap.com
+name: Ftp deploy 
 on:
   push:
     branches: [ main ]
