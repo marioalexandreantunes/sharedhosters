@@ -16,17 +16,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # mario ANTUNES 2023 - adicionado
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default='keg3gk@h15*e=0d!b#y(&(1+-qd0qnv_z%tt&z(*6gvlwq-)op')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # mario ANTUNES 2023 - adicionado
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # mario ANTUNES 2023 - adicionado
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1').split(" ")
 
 # mario ANTUNES 2023 - adicionado
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS').split(" ")
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='http://127.0.0.1').split(" ")
 
 # Application definition
 
@@ -86,11 +86,11 @@ if USE_MYSQL:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASS'),
-            'HOST':config('DB_HOST'),
-            'PORT':config('DB_PORT'),
+            'NAME': config('DB_NAME', default='DB_NAME'),
+            'USER': config('DB_USER', default='DB_USER'),
+            'PASSWORD': config('DB_PASS', default='DB_PASS'),
+            'HOST':config('DB_HOST', default='127.0.0.1'),
+            'PORT':config('DB_PORT', default='3306'),
             'OPTIONS': {
                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             }
@@ -190,8 +190,8 @@ if not DEBUG:
 
 # ADD --MA-- parte da configuração do https://cloudinary.com/
 cloudinary.config(
-    cloud_name=config("CLOUDINARY_CLOUD_NAME", default=""),
-    api_key=config("CLOUDINARY_API_KEY", default=""),
-    api_secret=config("CLOUDINARY__API_SECRET", default=""),
+    cloud_name=config("CLOUDINARY_CLOUD_NAME", default="CLOUDINARY_CLOUD_NAME"),
+    api_key=config("CLOUDINARY_API_KEY", default="CLOUDINARY_API_KEY"),
+    api_secret=config("CLOUDINARY__API_SECRET", default="CLOUDINARY__API_SECRET"),
     secure=True,
 )
