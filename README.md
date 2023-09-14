@@ -38,7 +38,7 @@ Caso precises de maior flexibilidade poderás adquirir uma cloud/Shared VPS, alp
 - `CPanel-Python` reload da app 
 - já estará a correr
 - `CPanel-FileManager` existe o `stderr.log` tem possiveis erros!
-- Para atualizar 
+- Para atualizar via terminal (pois poderás automatizar através to github actions & ftp)
   - `CPanel-Terminal` ainda com ambiente virtual ativado: 
     ```
             git fetch
