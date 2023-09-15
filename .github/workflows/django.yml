@@ -30,9 +30,9 @@ jobs:
       run: |
         python manage.py check --deploy
 
-  deploy:
+  webapp:
     needs: check
-    name: Deploy
+    name: Deploy Django
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
@@ -44,9 +44,29 @@ jobs:
         server: ${{ secrets.ftp_erver }}
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_password }}
+        server-dir: repositories/
+        local-dir: ./
         exclude: |
           **/.git*
           **/.git*/**
           **/.github*
           **/.github*/**
-          fileToExclude.txt
+          **/static/*
+          **/static/**
+          README.md
+  static:
+    needs: check
+    name: Deploy statics
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v3
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.ftp_erver }}
+        username: ${{ secrets.ftp_user }}
+        password: ${{ secrets.ftp_password }}
+        server-dir: public_html/test/
+        local-dir: ./static/
