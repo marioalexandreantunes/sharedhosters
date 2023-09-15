@@ -6,7 +6,7 @@ on:
 
 jobs:
   check:
-    name: Check Deploy
+    name: Django Check Deploy
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -32,7 +32,7 @@ jobs:
 
   webapp:
     needs: check
-    name: Deploy Django
+    name: FTP deploy webapp-django
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
@@ -56,7 +56,7 @@ jobs:
           README.md
   static:
     needs: check
-    name: Deploy statics
+    name: FTP deploy statics
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
