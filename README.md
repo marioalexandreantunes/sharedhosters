@@ -4,7 +4,7 @@ How to deploy a django app to a shared hoster like namecheap.com
 ## Fornecedores
 
 Usei `namecheap.com` fiz testes com shared hosting Stellar, que é o mais barato , fica 1,38€/mes. Para pequenos projectos poderás usar um, não é obrigatorio microsserviços e estruturas escalável.<br />
-<sub>Atenção o django precisar cache com `redis` não está disponível.<br />
+<sub>Atenção se o teu projecto de django precisar cache com `redis`, localmente não está disponível, podes usar remotamente grátis de `redislabs.com` ou `upstash.com`.<br />
 Shared Hoster terão possivelmente alguma limitações, exemplo Pillow que não poderás installar as novas versões, e usar versões antigas em produção poderá não se uma boa idea.</sub><br /><br />
 Alguns fornecedores que tem terminal, git e suporte para Python:<br />
 namecheap.com | protozoahost.com | greengeeks.com | fastcomet.com | a2hosting.com | hostinger.com<br />
@@ -38,7 +38,7 @@ Caso precises de maior flexibilidade poderás adquirir uma cloud/Shared VPS, alp
 - `CPanel-Python` reload da app 
 - já estará a correr
 - `CPanel-FileManager` existe o `stderr.log` tem possiveis erros!
-- Para atualizar 
+- Para atualizar via terminal (pois poderás automatizar através to github actions & ftp)
   - `CPanel-Terminal` ainda com ambiente virtual ativado: 
     ```
             git fetch
