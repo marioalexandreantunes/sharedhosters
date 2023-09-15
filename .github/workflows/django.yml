@@ -55,8 +55,6 @@ jobs:
           **/.git*/**
           **/.github*
           **/.github*/**
-          **/static/*
-          **/static/**
           README.md
   static:
     needs: [check, webapp]
@@ -72,5 +70,5 @@ jobs:
         server: ${{ secrets.ftp_erver }}
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_password }}
-        server-dir: public_html/test/static/
+        server-dir: /home/${{ secrets.root_user }}/${{ secrets.domain }}/static
         local-dir: ./static/
