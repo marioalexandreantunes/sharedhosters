@@ -145,7 +145,7 @@ USE_TZ = True
 
 # mario ANTUNES 2023 - adicionado
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), config("STATICFILES_DIRS")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), config("STATICFILES_DIRS", default="/home/USERNAME/public_html/static")]
 
 if not DEBUG:
     # Verifica no CPanel onde está a pasta 'public' para o teu dominio
