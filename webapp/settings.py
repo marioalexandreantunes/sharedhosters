@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # mario ANTUNES 2023 - adicionado
     # https://www.geeksforgeeks.org/adding-csp-headers-in-django-project/
-    'csp.middleware.CSPMiddleware', 
+    # 'csp.middleware.CSPMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
