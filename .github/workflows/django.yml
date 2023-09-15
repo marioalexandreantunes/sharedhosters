@@ -1,10 +1,8 @@
-name: Django - deploy Tests
+name: Django - test & deploy
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -31,3 +29,23 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         python manage.py check --deploy
+
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.ftp_erver }}
+        username: ${{ secrets.ftp_user }}
+        password: ${{ secrets.ftp_password }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/.github*
+          **/.github*/**
+          fileToExclude.txt
