@@ -1,9 +1,12 @@
 name: Django - test & deploy
 
 on:
+  # schedule:
+    # - cron:  '30 5,17 * * *'
   push:
     branches:
       - main
+    # branches-ignore:
 
 jobs:
   check:
@@ -56,7 +59,7 @@ jobs:
           **/static/**
           README.md
   static:
-    needs: check
+    needs: [check, webapp]
     name: FTP deploy statics
     runs-on: ubuntu-latest
     steps:
